@@ -16,11 +16,12 @@ from datetime import datetime
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello World, Django")
-    #return render(request, 'home.html', {'post_list' : post_list})
+    post_list = Article.objects.all()
+    #return HttpResponse("Hello World, Django")
+    return render(request, 'home.html', {'post_list' : post_list})
 
-def detail(request, args):
-    post = Article.objects.all()[int(my_args)]
+def detail(request, my_args):
+    post = Article.objects.filter(id=int(my_args))[0]
     str = ("title = %s, category = %s, date_time = %s, content = %s"
         % (post.title, post.category, post.date_time, post.content))
     return HttpResponse(str)

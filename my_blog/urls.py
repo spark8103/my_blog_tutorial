@@ -9,6 +9,5 @@ from article import views as article_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', article_views.home),
-    url()
-#    url(r'^(?Pd+)/$', article_views.detail, name='detail'),
+    url(r'^(?P<my_args>[0-9].*)/$', article_views.detail, name='detail'),
 ]
