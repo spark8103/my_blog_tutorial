@@ -1,3 +1,4 @@
 bootstrap-admin
 Django
 dj-database-url
+markdown
